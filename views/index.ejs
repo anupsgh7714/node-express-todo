@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>To Do</title>
+</head>
+<body>
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <h1 align="center">To Do Application</h1>
+            <div class="col col-xl-10">
+      
+              <div class="card">
+                <div class="card-body p-5">
+      
+                  <form  action="/" method="post">
+                    <div class="d-flex justify-content-center align-items-center mb-4">
+
+                        <div class="form-outline flex-fill">
+                            <input type="text" id="form2" name="item" class="form-control" id="todo" />
+                            <!-- <label class="form-label" for="form2">New task...</label> -->
+                        </div>
+                        <input type="submit" class="btn btn-info ms-2" value="submit">
+                    </div>
+
+                    
+
+
+                    <div class="tab-content" id="ex1-content">
+                        <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel"
+                          aria-labelledby="ex1-tab-1">
+                          <ul class="list-group mb-0">
+                            <% if(locals.todoArr) { %>
+                                <% todoArr.forEach((item, index) => { %>
+                                    <% if(locals.check && `item${index}` in check) {%>
+                                        <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded item"
+                                        style="background-color: #f4f6f7;" id="item<%=index%>">
+                                        <input class="form-check-input me-2" type="checkbox" name="item<%=index%>"  aria-label="..." checked />
+                                        <label for="strike"><s><%= item %></s></label>
+                                        </li>
+                                    <% }else { %>
+                                        <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded item"
+                                        style="background-color: #f4f6f7;" id="item<%=index%>">
+                                        <input class="form-check-input me-2" type="checkbox" name="item<%=index%>"  aria-label="..."  />
+                                        <label for="stike"><%= item %></label>
+                                        </li>
+                                    <% } %>
+                                        <%  %>
+                                <% }); %>
+                            <% } %>
+                            <ul>       
+                        </div>
+                    </div>
+                  </form>
+      
+                  
+      
+                </div>
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+    <script>
+        // alert("hello");
+        for(var i=0; i<document.querySelectorAll(".item").length; i++){
+            document.querySelectorAll("input[type=checkbox]")[i].addEventListener("click", (event) => {
+                    console.log("event : ",event.target.nextElementSibling);
+                    // console.log("this : ",this);
+                    // event.target.nextElementSibling.style.textDecoration = "line-through";
+                    event.target.nextElementSibling.classList.toggle("lineThrough");
+            })
+            // document.querySelectorAll("input[type=checkbox]")[i].addEventListener("click", (event) => {
+            //         event.target.nextElementSibling.style.textDecoration = "line-through";
+            // })
+
+            // }
+        }
+        
+        
+    </script>
+</body>
+</html>
+

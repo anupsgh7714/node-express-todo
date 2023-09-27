@@ -1,0 +1,27 @@
+<!-- <h1 class="h-100">To Do Application</h1>
+    <form action="/" method="post">
+        <input type="text" name="item" id="todo">
+        <input type="submit" value="submit">
+    <div class="todoList">
+        <ul>
+            <% if(locals.todoArr) { %>
+                <% todoArr.forEach((item, index) => { %>
+                    <% if(locals.check && `item${index}` in check) {%>
+                        <li id="item<%=index%>" class="item">
+                            <input type="checkbox" name="item<%=index%>" checked/>
+                            <s><label for="strike"><%= item %> </label></s>
+                        </li>
+                    <% }else { %>
+                        <li id="item<%=index%>" class="item">
+                            <input type="checkbox" name="item<%=index%>"/>
+                            <label for="strike"><%= item %> </label>
+                        </li>
+                    <% } %>
+                    <%  %>
+                <% }); %>
+                
+            <% } else { %>
+            <% } %>
+        </ul>
+    </div>
+</form> -->
